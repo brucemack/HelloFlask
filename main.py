@@ -18,28 +18,35 @@ print("Our name: " + __name__);
 print("Other name: " + other.name());
 print("Other2 name: " + other2.name());
 
+
 # ----- Demonstration of passing a function -----------------------------------
-def sayHello():
+def sayhello():
     print("Hello!");
+
+
 # Wrap the function above
-wrappedSayHello = other2.wrapper(sayHello);
+wrappedsayhello = other2.wrapper(sayhello);
 # Call the wrapped version
-print("Calling wrappedSayHello:");
-wrappedSayHello();
+print("Calling wrappedaayhello:");
+wrappedsayhello();
+
 
 # ----- Demonstrate decoration (same as above) ---------------------------------
 @other2.wrapper
-def wrappedSayHello2():
+def wrappedaayhello2():
     print("Hello2!");
+
+
 # Call the wrapped version
-print("Calling wrappedSayHello2:");
-wrappedSayHello2();
+print("Calling wrappedaayhello2:");
+wrappedaayhello2();
 
 # ----- Demonstrate instantiation of an object ----------------------------------
 #
 c = MyClass1("Bruce");
-print("Method call: " + c.getName());
+print("Method call: " + c.getname());
 c = MyClass2();
+
 
 # ----- Flask Stuff -------------------------------------------------------------
 # The at sign here is a "function decorator"
@@ -52,8 +59,9 @@ c = MyClass2();
 #
 @app.route('/')
 def hello_world():
-   return "Hello World ! Demo";
+    return "Hello World ! Demo";
+
 
 # This is is used to make sure that the app.run only happens from the top-level file:
 if __name__ == '__main__':
-   app.run();
+    app.run();

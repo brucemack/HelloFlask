@@ -1,5 +1,4 @@
-from flask import Flask
-#
+from flask import Flask, jsonify, json;
 from myclasses import MyClass1, MyClass2;
 
 # Load other.py
@@ -60,6 +59,30 @@ c = MyClass2();
 @app.route('/')
 def hello_world():
     return "Hello World ! Demo";
+
+
+# An example of a Flask method that has more control over the response
+@app.route('/json')
+def summary():
+    d = {
+        "a": 6,
+        "name": "Bruce"
+    };
+    response = app.response_class(
+        response = json.dumps(d),
+        status = 200,
+        mimetype = "application/json")
+    return response;
+
+
+# This does exactly the same thing as the example above
+@app.route('/json2')
+def getjson():
+    d = {
+        "a": 6,
+        "name": "Bruce"
+    };
+    return jsonify(d);
 
 
 # This is is used to make sure that the app.run only happens from the top-level file:
